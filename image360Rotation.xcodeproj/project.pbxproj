@@ -514,6 +514,7 @@
 				90BE5CD71EB9862D006AF1CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		90BE5CD81EB9862D006AF1CD /* Build configuration list for PBXNativeTarget "image360RotationTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +523,7 @@
 				90BE5CDA1EB9862D006AF1CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		90BE5CDB1EB9862D006AF1CD /* Build configuration list for PBXNativeTarget "image360RotationUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +532,7 @@
 				90BE5CDD1EB9862D006AF1CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

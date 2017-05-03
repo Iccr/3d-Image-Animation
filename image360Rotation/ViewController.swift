@@ -13,8 +13,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnStartAnimation: UIButton!
     @IBOutlet weak var imgAnimationView: UIImageView!
     
+    var playing = false
+    var increment = 1 // selects even and odd. 1 for all 2 for even 3 for odd.
+    
+    var index = 0
+    var image_address = "TATA_KITE_360_V8_000"
+    var image_address2 = "TATA_KITE_360_V8_00"
+    var timer: Timer?
+    let maxIndex = 69
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let firstImageAddress = image_address + "\(index)"
+        let firstImage = UIImage(named: firstImageAddress)
+        imgAnimationView.image = firstImage
+    
+      
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -23,6 +37,59 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    @IBAction func swiped(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == .left {
+//            swipeLeft 
+            
+        }
+        if sender.direction == .right {
+//            siwpe right
+        }
+    }
+    
+    @IBAction func btnPlayPause(_ sender: UIButton) {
+       playing ?
+        stopAnimation() : startAnimation()
+    }
+    
+
+    func runAnimation() {
+        if index == 70 { index = 0}
+        imgAnimationView.image = getImage(index: index)
+        playing = true
+    }
+    
+    func stopAnimation() {
+        btnStartAnimation.setTitle("Animation Stopped.", for: .normal)
+        stopTimer()
+        playing = false
+    }
+   
+    
+    func getImage(index: Int) -> UIImage {
+        let imageAddress = index < 10 ? image_address + "\(index)" : image_address2 + "\(index)"
+        
+        self.index +=  increment
+        print(imageAddress)
+        if let image =  UIImage(named: imageAddress) {
+            return image
+        }else {
+            return UIImage()
+        }
+        
+    }
+    
+    func startAnimation() {
+        btnStartAnimation.setTitle("Animating..", for: .normal)
+        timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: { timer in
+            self.runAnimation()
+        })
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+    }
     
 
 }

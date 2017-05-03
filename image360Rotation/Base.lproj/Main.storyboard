@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uJ7-dO-xuY">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,7 +36,13 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aL9-qC-9Sy">
                                                 <rect key="frame" x="222.5" y="0.0" width="222" height="68"/>
                                                 <color key="backgroundColor" red="0.99241906400000002" green="0.75804108380000002" blue="0.15096947550000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Button"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="68" id="5E1-e5-gKl"/>
+                                                </constraints>
+                                                <state key="normal" title="start"/>
+                                                <connections>
+                                                    <action selector="btnPlayPause:" destination="uJ7-dO-xuY" eventType="touchUpInside" id="vpH-V6-Jrr"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXC-LM-Bt3">
                                                 <rect key="frame" x="444.5" y="0.0" width="222.5" height="68"/>
@@ -65,12 +71,16 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnStartAnimation" destination="aL9-qC-9Sy" id="NvX-fh-RKy"/>
+                        <outlet property="btnStartAnimation" destination="aL9-qC-9Sy" id="HpU-nf-ZMB"/>
                         <outlet property="imgAnimationView" destination="mUc-mX-L18" id="vur-8l-kPt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqk-7j-7BN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="E2A-Ou-ZfR"/>
+                <swipeGestureRecognizer direction="right" id="E2A-Ou-ZfR">
+                    <connections>
+                        <action selector="swiped:" destination="uJ7-dO-xuY" id="GDF-Ev-q7r"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="735" y="-300"/>
         </scene>
