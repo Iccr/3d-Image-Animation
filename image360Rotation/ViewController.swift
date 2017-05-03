@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var btnStartAnimation: UIButton!
     @IBOutlet weak var imgAnimationView: UIImageView!
+    @IBOutlet weak var lblSelectedSequence: UILabel!
     
     var playing = false
     var increment = 1 // selects even and odd. 1 for all 2 for even 3 for odd.
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
         let firstImageAddress = image_address + "\(index)"
         let firstImage = UIImage(named: firstImageAddress)
         imgAnimationView.image = firstImage
+        lblSelectedSequence.text = "All"
     
       
         // Do any additional setup after loading the view, typically from a nib.
@@ -37,6 +39,22 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    @IBAction func all(_ sender: UIButton) {
+        lblSelectedSequence.text = "All"
+        self.increment = 1
+    }
+    
+    @IBAction func even(_ sender: UIButton) {
+        lblSelectedSequence.text = "Even"
+        self.increment = 2
+    }
+    
+    @IBAction func Odd(_ sender: UIButton) {
+        lblSelectedSequence.text = "Odd"
+        self.increment = 3
+    }
+    
     
     @IBAction func swiped(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == .left {
@@ -55,7 +73,7 @@ class ViewController: UIViewController {
     
 
     func runAnimation() {
-        if index == 70 { index = 0}
+        if index > 69 { index = 0}
         imgAnimationView.image = getImage(index: index)
         playing = true
     }
