@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="BVS-1i-qqY">
             <objects>
-                <viewController id="uJ7-dO-xuY" sceneMemberID="viewController">
+                <viewController id="uJ7-dO-xuY" customClass="ViewController" customModule="image360Rotation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J2n-eh-PPQ"/>
                         <viewControllerLayoutGuide type="bottom" id="htw-K8-B4R"/>
@@ -64,11 +64,15 @@
                             <constraint firstItem="4JL-bG-8aq" firstAttribute="top" secondItem="bbv-LP-B4t" secondAttribute="top" id="y5F-vJ-qsU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnStartAnimation" destination="aL9-qC-9Sy" id="NvX-fh-RKy"/>
+                        <outlet property="imgAnimationView" destination="mUc-mX-L18" id="vur-8l-kPt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqk-7j-7BN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="E2A-Ou-ZfR"/>
             </objects>
-            <point key="canvasLocation" x="422.33883058470769" y="-79.200000000000003"/>
+            <point key="canvasLocation" x="735" y="-300"/>
         </scene>
     </scenes>
 </document>
