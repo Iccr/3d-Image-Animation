@@ -72,11 +72,11 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mUc-mX-L18">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mUc-mX-L18">
                                         <rect key="frame" x="0.0" y="68" width="667" height="307"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="E2A-Ou-ZfR" appends="YES" id="UXJ-GS-LYZ"/>
+                                            <outletCollection property="gestureRecognizers" destination="LPh-It-Zfb" appends="YES" id="pAP-Rj-Wow"/>
                                         </connections>
                                     </imageView>
                                 </subviews>
@@ -92,18 +92,18 @@
                     </view>
                     <connections>
                         <outlet property="btnStartAnimation" destination="aL9-qC-9Sy" id="HpU-nf-ZMB"/>
-                        <outlet property="imgAnimationView" destination="mUc-mX-L18" id="vur-8l-kPt"/>
+                        <outlet property="imgAnimationView" destination="mUc-mX-L18" id="4lF-vu-bGh"/>
                         <outlet property="lblSelectedSequence" destination="OXC-LM-Bt3" id="q1V-bu-oWD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqk-7j-7BN" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="E2A-Ou-ZfR">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="LPh-It-Zfb">
                     <connections>
-                        <action selector="swiped:" destination="uJ7-dO-xuY" id="GDF-Ev-q7r"/>
+                        <action selector="swiped:" destination="uJ7-dO-xuY" id="mu4-va-53d"/>
                     </connections>
-                </swipeGestureRecognizer>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="735" y="-300"/>
+            <point key="canvasLocation" x="845" y="-430"/>
         </scene>
     </scenes>
 </document>

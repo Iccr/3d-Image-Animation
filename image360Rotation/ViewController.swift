@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var btnStartAnimation: UIButton!
     @IBOutlet weak var imgAnimationView: UIImageView!
     @IBOutlet weak var lblSelectedSequence: UILabel!
@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     var image_address2 = "TATA_KITE_360_V8_00"
     var timer: Timer?
     let maxIndex = 69
+    let timeinterval = 0.2
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +30,16 @@ class ViewController: UIViewController {
         let firstImage = UIImage(named: firstImageAddress)
         imgAnimationView.image = firstImage
         lblSelectedSequence.text = "All"
-    
-      
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
     @IBAction func all(_ sender: UIButton) {
         lblSelectedSequence.text = "All"
@@ -56,24 +57,44 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func swiped(_ sender: UISwipeGestureRecognizer) {
-        if sender.direction == .left {
-//            swipeLeft 
-            
+    @IBAction func swiped(_ sender: UIPanGestureRecognizer) {
+        //        let imageCount: CGFloat = 70
+        //        if imageCount <= 0 {return}
+        //
+        let velocity = sender.velocity(in: imgAnimationView)
+        //        let dx = round(sender.translation(in: imgAnimationView).x)
+        //        let width = imgAnimationView.frame.width - 40
+        //        let ratio = round(width / imageCount)
+        //
+        //
+        
+        let x = velocity.x
+        if x > 0 {
+            // swiped right
+            self.increment = abs(increment)
+            runAnimation()
+            print("right : x \(x)")
+        }else
+            if x < 0 {
+            // swiped left
+            print("left x: \(x)")
+            self.increment = -abs(increment)
+            runAnimation()
+        }else {
+            return
         }
-        if sender.direction == .right {
-//            siwpe right
-        }
+        
     }
     
     @IBAction func btnPlayPause(_ sender: UIButton) {
-       playing ?
-        stopAnimation() : startAnimation()
+        playing ?
+            stopAnimation() : startAnimation()
     }
     
-
+    
     func runAnimation() {
         if index > 69 { index = 0}
+        if index < 0 {index = 69}
         imgAnimationView.image = getImage(index: index)
         playing = true
     }
@@ -83,7 +104,7 @@ class ViewController: UIViewController {
         stopTimer()
         playing = false
     }
-   
+    
     
     func getImage(index: Int) -> UIImage {
         let imageAddress = index < 10 ? image_address + "\(index)" : image_address2 + "\(index)"
@@ -100,7 +121,7 @@ class ViewController: UIViewController {
     
     func startAnimation() {
         btnStartAnimation.setTitle("Animating..", for: .normal)
-        timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: { timer in
+        timer = Timer.scheduledTimer(withTimeInterval: timeinterval, repeats: true, block: { timer in
             self.runAnimation()
         })
     }
@@ -109,6 +130,6 @@ class ViewController: UIViewController {
         timer?.invalidate()
     }
     
-
+    
 }
 
